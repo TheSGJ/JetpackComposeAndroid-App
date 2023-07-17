@@ -34,7 +34,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
             text = "Hello $name!",
             modifier = modifier,
-            color = Color.Green
+            color = Color.Green,
             textAlign = TextAlign.Center
     )
 }
