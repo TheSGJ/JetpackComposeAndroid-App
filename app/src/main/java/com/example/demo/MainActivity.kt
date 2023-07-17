@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.demo.ui.theme.DemoTheme
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.graphics.Color
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,8 +32,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-            text = "Hello $name!",
-            modifier = modifier,
-            textAlign = TextAlign.Center
+        text = "Hello $name!",
+        modifier = modifier,
+        textAlign = TextAlign.Center,
+        color = Color.Green
     )
 }
