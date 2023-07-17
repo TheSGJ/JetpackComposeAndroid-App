@@ -3,44 +3,41 @@ package com.example.demo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.text.TextRange
-import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.demo.ui.theme.DemoTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            InitialTextField()
-            SayTheWord("Example from Android Planet!")
+            DemoTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+                    Greeting("Android Kotlin!")
+                }
+            }
         }
     }
 }
 
 @Composable
-fun SayTheWord(name: String = "Android is Best") {
+fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name",
-        fontWeight = FontWeight.ExtraBold,
-        color = Color.Green,
-        fontSize = 36.sp,
-        textAlign = TextAlign.Center,
+            text = "Hello $name!",
+            modifier = modifier
     )
 }
 
+@Preview(showBackground = true)
 @Composable
-fun InitialTextField() {
-    var text by rememberSaveable(stateSaver = TextFieldValue.Saver) {
-        mutableStateOf(TextFieldValue("example", TextRange(0, 7)))
+fun GreetingPreview() {
+    DemoTheme {
+        Greeting("Android")
     }
-
-    TextField(
-        value = text,
-        onValueChange = { text = it },
-        label = { Text("Label") },
-    )
 }
