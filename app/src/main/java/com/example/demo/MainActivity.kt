@@ -11,7 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.demo.ui.theme.DemoTheme
-import android.graphics.color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
@@ -34,7 +33,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
             text = "Hello $name!",
             modifier = modifier,
-            color = Color.Green,
             textAlign = TextAlign.Center
     )
 }
