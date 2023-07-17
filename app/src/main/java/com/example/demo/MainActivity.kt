@@ -20,7 +20,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.TextFieldValue
 import android.util.Log
-import android.graphics.Color
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,15 +36,15 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier,
-        textAlign = TextAlign.Center,
-        color = Color.Green
-    )
-}
+// @Composable
+// fun Greeting(name: String, modifier: Modifier = Modifier) {
+//     Text(
+//         text = "Hello $name!",
+//         modifier = modifier,
+//         textAlign = TextAlign.Center,
+//         color = Color.Green
+//     )
+// }
 
 @Composable
 fun TextInput(){
