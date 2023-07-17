@@ -47,13 +47,11 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 
 @Composable
 fun TextInput(){
-    var text by rememberSaveable(stateSaver = TextFieldValue.Saver) {
-        mutableStateOf(TextFieldValue("example", TextRange(0, 7)))
-    }
             TextField(
-                value = text,
-                onValueChange = { text = it },
-                label = { Text("Label") }
+                value = "You can't touch this!!"
+                onValueChange = { 
+                    Log.d("IGDROID", it)
+                 },
+                label = { Text(text = "Write a Message") }
             )
-    }
 }
