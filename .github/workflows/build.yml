@@ -17,7 +17,8 @@ jobs:
         java-version: '17'
         distribution: 'adopt'
         cache: gradle
-    - name: run: chmod +x gradlew
+    - name: Make Gradle file executable
+      run: chmod +x gradlew
     - name: Assemble 'release' with Gradle
       run: ./gradlew assembleRelease
     - name: Sign Apk
