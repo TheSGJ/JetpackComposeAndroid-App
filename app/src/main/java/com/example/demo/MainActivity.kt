@@ -1,5 +1,3 @@
-package com.example.demo
-
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -7,28 +5,22 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.demo.ui.theme.DemoTheme
+import androidx.compose.material3.TextField
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.graphics.color
-import androidx.compose.material3.TextField
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.text.TextRange
-import androidx.compose.ui.text.input.TextFieldValue
-import android.util.Log
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             DemoTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    // Greeting("Android Kotlin!")
+                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
                     TextInput()
                 }
             }
@@ -36,23 +28,15 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-// @Composable
-// fun Greeting(name: String, modifier: Modifier = Modifier) {
-//     Text(
-//         text = "Hello $name!",
-//         modifier = modifier,
-//         textAlign = TextAlign.Center,
-//         color = Color.Green
-//     )
-// }
-
 @Composable
-fun TextInput(){
-            TextField(
-                value = "You can't touch this!!"
-                onValueChange = { 
-                    Log.d("IGDROID", it)
-                 },
-                label = { Text(text = "Write a Message") }
-            )
+fun TextInput() {
+    val textState = rememberSaveable { mutableStateOf(TextFieldValue()) }
+    TextField(
+        value = textState.value,
+        onValueChange = { newValue ->
+            textState.value = newValue
+            // Log.d("IGDROID", newValue.text) // Logging inside a composable function is not recommended.
+        },
+        label = { Text(text = "Write a Message") }
+    )
 }
