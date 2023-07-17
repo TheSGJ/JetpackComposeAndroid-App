@@ -7,20 +7,19 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.demo.ui.theme.DemoTheme
 import androidx.compose.material3.TextField
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.graphics.Color
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             DemoTheme {
+                // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+                    // Greeting("Android Kotlin!")
                     TextInput()
                 }
             }
@@ -30,11 +29,11 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun TextInput() {
-    val textState = rememberSaveable { mutableStateOf(TextFieldValue()) }
+    var textState by remember { mutableStateOf(TextFieldValue()) }
     TextField(
-        value = textState.value,
+        value = textState,
         onValueChange = { newValue ->
-            textState.value = newValue
+            textState = newValue
             // Log.d("IGDROID", newValue.text) // Logging inside a composable function is not recommended.
         },
         label = { Text(text = "Write a Message") }
