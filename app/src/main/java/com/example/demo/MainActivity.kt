@@ -12,16 +12,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import com.example.demo.ui.theme.DefaultTheme
-
+// miscellaneous
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
-import androidx.compose.material3.icons.Icons
-import androidx.compose.material3.icons.filled.Clear
-import androidx.compose.material3.icons.filled.Visibility
-import androidx.compose.material3.icons.filled.VisibilityOff
+// import androidx.compose.material3.icons.Icons
+// import androidx.compose.material3.icons.filled.Clear
+// import androidx.compose.material3.icons.filled.Visibility
+// import androidx.compose.material3.icons.filled.VisibilityOff
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.ColorFilter
@@ -39,7 +39,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            DemoTheme {
+            DefaultTheme {
                 SignInScreen()
             }
         }
@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun SignInScreen() {
-    Scaffold(backgroundColor = Color.White) {
+    Scaffold(containerColor = Color.White) {
         Column(Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally){
             Image(
                 painter = painterResource(id = R.drawable.ic_visa), 
