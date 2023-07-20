@@ -17,7 +17,6 @@ import androidx.compose.material3.*
 
 private val LightColorPalette = lightColorScheme(
     primary = MainColor,
-    primaryVariant = MainColor,
     secondary = MainColor
 )
 
