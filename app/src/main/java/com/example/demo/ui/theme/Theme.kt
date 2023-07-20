@@ -13,10 +13,9 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import androidx.compose.material3.*
 
-import androidx.compose.material3.lightColors
-
-private val LightColorPalette = lightColors(
+private val LightColorPalette = lightColorScheme(
     primary = MainColor,
     primaryVariant = MainColor,
     secondary = MainColor
@@ -25,9 +24,8 @@ private val LightColorPalette = lightColors(
 @Composable
 fun DefaultTheme(content: @Composable() () -> Unit) {
     MaterialTheme(
-        colors = LightColorPalette,
+        colorScheme = LightColorPalette,
         typography = Typography,
-        shapes = Shapes,
         content = content
     )
 }
