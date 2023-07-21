@@ -18,3 +18,4 @@ fun DefaultTheme(content: @Composable() () -> Unit) {
         shapes = Shapes,
         content = content
     )
+}
